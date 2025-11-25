@@ -1,0 +1,37 @@
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+
+### Logs ###
+logs/
+*.log
+
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### Spring Boot ###
+/build/
+/out/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.ipr
+
+### VS Code ###
+.vscode/
+
+### OS / Windows ###
+Thumbs.db
+.DS_Store
+
+### Env ###
+*.env
+.env.local
+.env.*
