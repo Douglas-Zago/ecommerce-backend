@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -19,12 +18,12 @@ public class ProductController {
 
     @GetMapping
     public List<Product> getAll() {
-        return productService.getProducts();
+        return productService.getAll();
     }
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable String id) {
-        return productService.findById(id);
+        return productService.getById(id);
     }
 
     @PostMapping
