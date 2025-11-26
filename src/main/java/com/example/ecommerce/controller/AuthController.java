@@ -2,6 +2,7 @@ package com.example.ecommerce.controller;
 
 import com.example.ecommerce.dto.LoginRequest;
 import com.example.ecommerce.dto.LoginResponse;
+import com.example.ecommerce.security.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
@@ -10,13 +11,9 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     @PostMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest req) {
-
-        if ("admin".equals(req.getUsername()) &&
-                "admin".equals(req.getPassword())) {
-            return new LoginResponse(true, "fake-jwt-token-123");
-        }
-
-        return new LoginResponse(false, null);
+    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+        
+        String token = JwtUtil.generateToken(loginRequest.getUsername());
+        return new LoginResponse(true, token);
     }
 }
